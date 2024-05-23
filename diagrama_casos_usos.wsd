@@ -1,0 +1,22 @@
+@startuml
+actor Administrador
+actor Usuario
+
+usecase "Gestionar Clientes" as UC1
+usecase "Gestionar Facturas" as UC2
+usecase "Gestionar Detalles de Facturas" as UC3
+usecase "Gestionar Productos" as UC4
+usecase "Gestionar Inventario" as UC5
+
+Administrador --> UC1
+Administrador --> UC2
+Administrador --> UC3
+Administrador --> UC4
+Administrador --> UC5
+
+Usuario --> UC1
+Usuario --> UC2
+Usuario --> UC3
+Usuario --> UC4
+Usuario --> UC5
+@enduml

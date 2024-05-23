@@ -1,0 +1,12 @@
+@startuml
+actor Usuario
+participant "Sistema" as Sistema
+database "Base de Datos" as DB
+
+Usuario -> Sistema: crearFactura()
+Sistema -> DB: verificarCliente()
+DB --> Sistema: clienteValido
+Sistema -> DB: guardarFactura()
+DB --> Sistema: facturaGuardada
+Sistema --> Usuario: confirmacion
+@enduml

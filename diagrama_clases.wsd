@@ -1,0 +1,66 @@
+@startuml
+class Cliente {
+  - tipoDocumento: String
+  - documento: String
+  - nombre: String
+  - correo: String
+  + registrar()
+  + modificar()
+  + eliminar()
+  + consultar()
+}
+
+class FacturaCliente {
+  - numeroFactura: String
+  - fecha: Date
+  - cliente: Cliente
+  + crear()
+  + modificar()
+  + eliminar()
+  + consultar()
+}
+
+class DetalleFactura {
+  - cantidad: int
+  - valorBruto: float
+  - valorNeto: float
+  - valorDescuento: float
+  - valorTotal: float
+  - factura: FacturaCliente
+  + agregar()
+  + modificar()
+  + eliminar()
+  + consultar()
+}
+
+class Producto {
+  - codigo: String
+  - nombre: String
+  - descripcion: String
+  - categoria: String
+  - valor: float
+  + registrar()
+  + modificar()
+  + eliminar()
+  + consultar()
+}
+
+class Inventario {
+  - codigo: String
+  - stock: int
+  - fechaIngreso: Date
+  - valorDescuento: float
+  - porcentajeIVA: float
+  - fechaSalida: Date
+  + registrarEntrada()
+  + registrarSalida()
+  + modificar()
+  + eliminar()
+  + consultar()
+}
+
+Cliente "1" -- "0..*" FacturaCliente
+FacturaCliente "1" -- "0..*" DetalleFactura
+Producto "1" -- "0..*" DetalleFactura
+Producto "1" -- "0..*" Inventario
+@enduml
